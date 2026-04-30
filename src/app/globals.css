@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg text-text font-body text-base overflow-x-hidden cursor-default;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-bg;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent rounded-[2px];
+  }
+
+  ::selection {
+    @apply bg-accent text-bg;
+  }
+}
+
+@layer components {
+  .section-header {
+    @apply mb-16;
+  }
+
+  .section-eyebrow {
+    @apply font-mono text-[0.72rem] text-accent tracking-[0.2em] uppercase mb-3 block;
+  }
+
+  .section-title {
+    @apply font-display text-3xl md:text-5xl font-bold text-white leading-tight;
+  }
+
+  .section-line {
+    @apply w-[60px] h-[2px] bg-accent mt-4;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-accent text-bg px-6 py-3 rounded-[3px] font-medium text-sm tracking-wide transition-all duration-200 border-2 border-accent cursor-pointer;
+  }
+
+  .btn-primary:hover {
+    @apply bg-transparent text-accent -translate-y-[2px] shadow-[0_8px_30px_rgba(200,169,110,0.2)];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 bg-transparent text-text px-6 py-3 rounded-[3px] font-medium text-sm tracking-wide transition-all duration-200 border-2 border-border cursor-pointer;
+  }
+
+  .btn-secondary:hover {
+    @apply border-accent text-accent -translate-y-[2px];
+  }
+
+  .tag {
+    @apply px-3 py-1 bg-bg3 border border-border rounded-[2px] text-xs text-muted font-mono transition-all duration-200;
+  }
+
+  .tag:hover {
+    @apply border-accent text-accent;
+  }
+
+  .tool-chip {
+    @apply px-4 py-1.5 bg-bg3 border border-border rounded-[20px] text-[0.82rem] text-text transition-all duration-200;
+  }
+
+  .tool-chip:hover {
+    @apply border-accent text-accent bg-[rgba(200,169,110,0.04)];
+  }
+}
+
+@layer utilities {
+  .noise::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 0.1s;
+  }
+  .animation-delay-200 {
+    animation-delay: 0.25s;
+  }
+  .animation-delay-300 {
+    animation-delay: 0.4s;
+  }
+  .animation-delay-400 {
+    animation-delay: 0.55s;
+  }
+  .animation-delay-500 {
+    animation-delay: 0.7s;
+  }
+}
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); } /* কতটুকু উপরে লাফাবে */
+  100% { transform: translateY(0px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite; /* ৪ সেকেন্ড পর পর উপরে-নিচে হবে */
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite; /* পেছনের ড্যাশ বর্ডার ধীরে ঘুরবে */
+}
