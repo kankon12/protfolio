@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         Konkan<span className="text-accent">.</span>Mallick
       </div>
       <div className="text-xs text-muted font-mono text-center">
-        Designed & Developed with ♥ by <span className="text-accent">konkan Mallick</span> · © 2025
+        Designed & Developed with ♥ by <span className="text-accent">konkan Mallick</span> · © 2026
       </div>
       <div className="flex gap-3">
         <a href="https://github.com/kankon12" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-[3px] border border-border flex items-center justify-center text-muted transition-all duration-200 hover:border-accent hover:text-accent">
